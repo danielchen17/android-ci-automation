@@ -1,3 +1,5 @@
+import com.android.ddmlib.DdmPreferences
+
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
@@ -16,7 +18,7 @@ buildscript {
 
 }
 
-com.android.ddmlib.DdmPreferences.setTimeOut(60000)
+DdmPreferences.setTimeOut(90000)
 
 allprojects {
     repositories {
