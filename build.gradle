@@ -16,6 +16,8 @@ buildscript {
 
 }
 
+com.android.ddmlib.DdmPreferences.setTimeOut(60000)
+
 allprojects {
     repositories {
         google()
