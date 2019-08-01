@@ -8,7 +8,7 @@ branches:
 env:
   global:
   - ANDROID_ABI=x86_64
-  - ANDROID_API_LEVEL=27
+  - ANDROID_API_LEVEL=28
   - ANDROID_TAG=default
   - ADB_INSTALL_TIMEOUT=8
   - ANDROID_HOME=/usr/local/android-sdk
@@ -50,11 +50,13 @@ install:
 #  - emulator -avd avd001 -no-audio -no-window -no-accel -gpu swiftshader -no-snapshot -no-boot-anim &
   - android-wait-for-emulator
   - adb shell input keyevent 82 &
+before_script:
+  - adb devices
 jobs:
   include:
     - stage: test
       name: Instrumentation-Test
-      script: "./gradlew connectedAndroidTest"
+      script: "./gradlew cAT"
 
 before_cache:
 - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock

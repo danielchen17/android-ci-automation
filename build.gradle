@@ -18,7 +18,7 @@ buildscript {
 
 }
 
-DdmPreferences.setTimeOut(90000)
+DdmPreferences.setTimeOut(60000)
 
 allprojects {
     repositories {
