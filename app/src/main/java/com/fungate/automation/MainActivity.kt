@@ -1,13 +1,23 @@
 package com.fungate.automation
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        println("1234")
+
+        textView.setOnClickListener {
+            startActivity(Intent(this@MainActivity, SecondActivity::class.java))
+        }
+    }
+
+
+    companion object {
+        var temp = "abc"
     }
 }

@@ -21,6 +21,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        targetCompatibility = "8"
+        sourceCompatibility = "8"
+    }
 }
 
 dependencies {
@@ -33,4 +37,11 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     androidTestImplementation 'androidx.test:rules:1.2.0'
 
+
+    def mockk_version = "1.9.3.kotlin12"
+    testImplementation "io.mockk:mockk:$mockk_version"
+    androidTestImplementation("io.mockk:mockk-android:$mockk_version") { exclude module: 'objenesis' }
+    androidTestImplementation 'org.objenesis:objenesis:2.6'
+    androidTestImplementation 'com.squareup.okhttp3:mockwebserver:3.14.2'
+    testImplementation("com.squareup.okhttp3:mockwebserver:3.14.2")
 }
